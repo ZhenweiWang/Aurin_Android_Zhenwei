@@ -16,6 +16,7 @@ public class Capabilities implements Serializable {
 //    public String website = "www.aurin.org.au";
     public ArrayList<String> keywords;
     public BBOX bbox;
+    public int image_id;
 
 //    @Override
 //    public int describeContents() {

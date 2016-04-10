@@ -33,7 +33,7 @@ import java.util.logging.LogRecord;
 public class MainActivity extends AppCompatActivity {
 
     public ArrayList<Capabilities> allname = new ArrayList<>();
-    public ArrayList<String> titles = new ArrayList<>();
+    //public ArrayList<String> titles = new ArrayList<>();
 
     private static final String[] state=
             {"Australian Capital Territory","New South Wales","Northern Territory",
@@ -215,8 +215,9 @@ public class MainActivity extends AppCompatActivity {
                             cap.abstracts = abstracts;
                             cap.keywords = keywords;
                             cap.bbox = bbox;
+                            cap.image_id = R.drawable.ic_launcher;
 
-                            titles.add(cap.title);
+                            //titles.add(cap.title);
                             AllDatastes.lists.add(cap);
                         }
                         break;

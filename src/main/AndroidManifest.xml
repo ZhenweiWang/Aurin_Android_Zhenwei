@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.aurin.aurin_android_zhenwei">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
-
     <application
-        android:hardwareAccelerated="false"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -23,7 +22,8 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SecondActivity" />
-        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".WebViewActivity" />
+        <activity android:name=".DetailActivity"></activity>
     </application>
 
 </manifest>
