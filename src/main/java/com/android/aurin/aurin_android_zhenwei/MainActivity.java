@@ -104,12 +104,15 @@ public class MainActivity extends AppCompatActivity {
         next1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                sendRequestWithURLConnection();
+//              sendRequestWithURLConnection();
                 Intent intent = new Intent(MainActivity.this,SecondActivity.class);
                 intent.setAction("action");
                 //Bundle bundle = new Bundle();
                 //bundle.putParcelableArrayList("titles", titles);
-                intent.putExtra("titles", titles);
+                String bbox = spinner2.getSelectedItem().toString();
+                BBOX filter_bbox = City_BBOX.city_bbox.get(bbox);
+                intent.putExtra("bbox", filter_bbox);
+                System.out.println(filter_bbox.getHigherLa());
                 startActivity(intent);
             }
         });

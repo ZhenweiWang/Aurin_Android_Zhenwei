@@ -14,27 +14,29 @@ public class SecondActivity extends AppCompatActivity{
     ArrayList<Capabilities> cap2 = AllDatastes.lists;
     ArrayList<String> data = new ArrayList<>();
 
+
 //    String[] data1 = {"aaa","bbb","vvv","www"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        for(int i=0;i<cap2.size();i++){
+            String title = cap2.get(i).title;
+            data.add(title);
+        }
+
         Intent intent = getIntent();
-        System.out.println("almost finished! ");
         if ("action".equals(intent.getAction())){
-            data = (ArrayList<String>) intent.getSerializableExtra("titles");
+            BBOX filter_bbox = new BBOX();
+            filter_bbox = (BBOX)intent.getSerializableExtra("bbox");
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                     SecondActivity.this, android.R.layout.simple_list_item_1, data);
             ListView listView = (ListView) findViewById(R.id.list_view);
             listView.setAdapter(adapter);
-            System.out.println("Finished!");
-
-            for (int i =0; i<cap2.size();i++){
-                System.out.println(cap2.get(i).organization);
-            }
-
+            System.out.println(filter_bbox.getHigherLa());
         }
+
 
     }
 }

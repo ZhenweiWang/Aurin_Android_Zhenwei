@@ -24,12 +24,16 @@ public class BBOX implements Serializable{
 //        return name;
 //    }
 
-//    public BBOX(){
-//        this.lowerLon = lowerLon;
-//        this.higherLon = higherLon;
-//        this.lowerLa = lowerLa;
-//        this.higherLa = higherLa;
-//    }
+    public BBOX(){
+
+    }
+
+    public BBOX(double lowerLon, double higherLon, double lowerLa, double higherLa){
+        this.lowerLon = lowerLon;
+        this.higherLon = higherLon;
+        this.lowerLa = lowerLa;
+        this.higherLa = higherLa;
+    }
 
     public void setLowerLon(Double lowerLon) {
         this.lowerLon = lowerLon;
