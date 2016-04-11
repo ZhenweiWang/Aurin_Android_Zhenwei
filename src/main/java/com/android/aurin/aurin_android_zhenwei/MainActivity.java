@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,WebViewActivity.class);
                 String url = "http://aurin.org.au/";
-                intent.putExtra("url",url);
+                intent.putExtra("url", url);
                 startActivity(intent);
             }
         });
@@ -213,7 +213,54 @@ public class MainActivity extends AppCompatActivity {
                             cap.abstracts = abstracts;
                             cap.keywords = keywords;
                             cap.bbox = bbox;
-                            cap.image_id = R.drawable.ic_launcher;
+                            switch (organization){
+                                case "ACARA":
+                                    cap.image_id=R.drawable.acara;
+                                    break;
+                                case "Landgate":
+                                    cap.image_id=R.drawable.landgate;
+                                    break;
+                                case "DSDBI":
+                                    cap.image_id=R.drawable.dsdbi;
+                                    break;
+                                case "RIA":
+                                    cap.image_id=R.drawable.ria;
+                                    break;
+                                case "Stocks_and_Flows":
+                                    cap.image_id=R.drawable.stocks_and_flows;
+                                    break;
+                                case "grattan":
+                                    cap.image_id=R.drawable.grattan;
+                                    break;
+                                case "gu_urp":
+                                    cap.image_id=R.drawable.gu_urp;
+                                    break;
+                                case "melb_water":
+                                    cap.image_id=R.drawable.melb_water;
+                                    break;
+                                case "nm":
+                                    cap.image_id=R.drawable.nm;
+                                    break;
+                                case "qld_govt_qtt":
+                                    cap.image_id=R.drawable.qld_govt_qtt;
+                                    break;
+                                case "ua_apmrc":
+                                    cap.image_id=R.drawable.ua_apmrc;
+                                    break;
+                                case "vic_govt_delwp":
+                                    cap.image_id=R.drawable.vic_govt_delwp;
+                                    break;
+                                case "vic_lgovt_hume":
+                                    cap.image_id=R.drawable.vic_lgovt_hume;
+                                    break;
+                                case "vichealth":
+                                    cap.image_id=R.drawable.vichealth;
+                                    break;
+                                default:
+                                    cap.image_id=R.drawable.aurin;
+
+                            }
+                            //cap.image_id = R.drawable.organization;
 
                             //titles.add(cap.title);
                             AllDatastes.lists.add(cap);
