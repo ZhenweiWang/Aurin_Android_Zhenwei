@@ -1,38 +1,30 @@
 package com.android.aurin.aurin_android_zhenwei;
 
 import android.content.Intent;
-import android.os.Message;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ArrayList<Capabilities> allname = new ArrayList<>();
+    //public ArrayList<Capabilities> allname = new ArrayList<>();
     //public ArrayList<String> titles = new ArrayList<>();
 
     private static final String[] state=
@@ -54,11 +46,13 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter2;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sendRequestWithURLConnection();
+
 
         view1 = (TextView) findViewById(R.id.spinner1_textview);
         view2 = (TextView) findViewById(R.id.spinner2_textview);
@@ -94,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,WebViewActivity.class);
+                String url = "http://aurin.org.au/";
+                intent.putExtra("url",url);
                 startActivity(intent);
             }
         });
@@ -119,15 +115,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Button locate = (Button) findViewById(R.id.location);
-        locate.setOnClickListener(new View.OnClickListener() {
+        Button aboutus = (Button) findViewById(R.id.about_us);
+        aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this,AboutUsActivity.class);
+                startActivity(intent);
             }
         });
 
     }
+
 
     private void sendRequestWithURLConnection() {
         //System.out.println("URL connection");

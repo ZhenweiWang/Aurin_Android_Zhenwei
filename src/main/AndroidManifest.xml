@@ -23,7 +23,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".AboutUsActivity"></activity>
     </application>
 
 </manifest>
