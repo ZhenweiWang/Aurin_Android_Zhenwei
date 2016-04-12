@@ -167,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
             xmlPullParser.setInput(new StringReader(xmlData));
             int eventType = xmlPullParser.getEventType();
 
+            String name ="";
             String title = "";
             String abstracts = "";
             String organization = "";
@@ -178,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
                 switch (eventType) {
                     case XmlPullParser.START_TAG: {
                         if ("Name".equals(nodeName)) {
-                            String[] array = xmlPullParser.nextText().split(":");
+                            name = xmlPullParser.nextText();
+                            String[] array = name.split(":");
                             organization = array[0];
                         }
                         else if ("Title".equals(nodeName)){
@@ -208,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
                     case XmlPullParser.END_TAG: {
                         if ("FeatureType".equals(nodeName)) {
                             Capabilities cap = new Capabilities();
+                            cap.name = name;
                             cap.title = title;
                             cap.organization = organization;
                             cap.abstracts = abstracts;
