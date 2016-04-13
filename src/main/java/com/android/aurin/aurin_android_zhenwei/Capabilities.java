@@ -10,10 +10,10 @@ import java.util.ArrayList;
  * Created by apple on 16/4/9.
  */
 public class Capabilities implements Serializable {
-    public String name = "name";
-    public String title = "data title";
-    public String abstracts = "abstracts";
-    public String organization = "organization";
+    public String name = "no name";
+    public String title = "no data title";
+    public String abstracts = "no abstracts";
+    public String organization = "no organization";
 //    public String website = "www.aurin.org.au";
     public ArrayList<String> keywords;
     public BBOX bbox;

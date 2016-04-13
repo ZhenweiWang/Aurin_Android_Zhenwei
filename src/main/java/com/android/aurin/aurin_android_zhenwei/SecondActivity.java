@@ -46,6 +46,7 @@ public class SecondActivity extends AppCompatActivity{
         if ("action".equals(intent.getAction())){
             BBOX filter_bbox;
             filter_bbox = (BBOX)intent.getSerializableExtra("bbox");
+            Picked_City.picked_city = filter_bbox;
 
             spinner = (Spinner) findViewById(R.id.organization);
 
