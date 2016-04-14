@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
             title.setText(cap.title);
 
             TextView org = (TextView) findViewById(R.id.org_text);
-            org.setText(cap.title);
+            org.setText(cap.organization);
 
             TextView abstracts = (TextView) findViewById(R.id.abstract_text);
             abstracts.setText(cap.abstracts);
@@ -76,5 +76,6 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.isMyLocationEnabled();
     }
 }
