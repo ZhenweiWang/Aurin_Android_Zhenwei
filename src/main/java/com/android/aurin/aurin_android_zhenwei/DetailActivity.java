@@ -57,7 +57,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
             showmap.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(DetailActivity.this,MapsActivity.class);
+                    Intent intent = new Intent(DetailActivity.this,Map_Filter.class);
                     startActivity(intent);
                 }
             });
