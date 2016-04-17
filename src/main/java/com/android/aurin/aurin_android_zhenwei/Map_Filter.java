@@ -264,15 +264,12 @@ public class Map_Filter extends AppCompatActivity {
             String attribute;
             String classifier;
 
-            //ArrayList<String> keywords = new ArrayList<>();
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 String nodeName = xmlPullParser.getName();
                 System.out.println(nodeName);
                 switch (eventType) {
                     case XmlPullParser.START_TAG: {
                         if ("xsd:element".equals(nodeName)) {
-                            System.out.println("Eleeeeeeeeeee!!!!!!!");
-                            int count = xmlPullParser.getAttributeCount();
                             String type = xmlPullParser.getAttributeValue(null,"type");
                             if (type.equals("xsd:string")){
                                 attribute = xmlPullParser.getAttributeValue(null,"name");
@@ -280,6 +277,16 @@ public class Map_Filter extends AppCompatActivity {
                                 attributes.add(attribute);
                             }
                             else if (type.equals("xsd:double")){
+                                classifier = xmlPullParser.getAttributeValue(null, "name");
+                                System.out.println(classifier);
+                                classifiers.add(classifier);
+                            }
+                            else if (type.equals("xsd:float")){
+                                classifier = xmlPullParser.getAttributeValue(null, "name");
+                                System.out.println(classifier);
+                                classifiers.add(classifier);
+                            }
+                            else if (type.equals("xsd:int")){
                                 classifier = xmlPullParser.getAttributeValue(null, "name");
                                 System.out.println(classifier);
                                 classifiers.add(classifier);

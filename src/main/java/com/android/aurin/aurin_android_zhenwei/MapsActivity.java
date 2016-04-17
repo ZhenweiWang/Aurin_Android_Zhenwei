@@ -1,8 +1,11 @@
 package com.android.aurin.aurin_android_zhenwei;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -11,6 +14,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.geojson.GeoJsonFeature;
 import com.google.maps.android.geojson.GeoJsonLayer;
 
 import org.json.JSONException;
@@ -23,25 +27,28 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-//    JSONArray jsonArray = new JSONArray();
+    //    JSONArray jsonArray = new JSONArray();
 //    JSONObject jobj = new JSONObject();
     SupportMapFragment mapFragment;
     public static final int SHOW_RESPONSE = 0;
     private Handler handler = new Handler() {
 
-        public void handleMessage(Message msg){
+        public void handleMessage(Message msg) {
 
-            switch (msg.what){
+            switch (msg.what) {
                 case SHOW_RESPONSE:
                     String response = (String) msg.obj;
                     try {
                         JSONObject object = new JSONObject(response);
                         Selected_JSONObj.object = object;
                         GeoJsonLayer layer = new GeoJsonLayer(mapFragment.getMap(), Selected_JSONObj.object);
+                        mapsetting(layer);
                         layer.addLayerToMap();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -56,23 +63,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-         mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         sendRequestWithURLConnection();
 
-//        for(int i=0; i<jsonArray.length();i++){
-//            try {
-//                System.out.println(jsonArray.get(2).toString());
-//                GeoJsonLayer layer = new GeoJsonLayer(mapFragment.getMap(), (JSONObject) jsonArray.get(i));
-//                layer.addLayerToMap();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//        }
-        System.out.println("aaaaaa: " + Selected_JSONObj.object.toString());
-//        GeoJsonLayer layer = new GeoJsonLayer(mapFragment.getMap(), Selected_JSONObj.object);
-//        layer.addLayerToMap();
     }
 
 
@@ -93,6 +88,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //getUiSettings.setZoomControlsEnabled(true)
+        isMyLocationButtonEnabled();
+        mMap.isMyLocationEnabled();
+
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
     }
 
     private void sendRequestWithURLConnection() {
@@ -121,14 +132,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         response.append(line);
                     }
                     String data = response.toString();
-                    System.out.println(data);
-//                    JSONArray jsonArray1 = new JSONArray(data);
-//                    jsonArray = jsonArray1;
-//                    JSONObject object = new JSONObject(data);
-//                    System.out.println("bbb"+object.toString());
-//                    Selected_JSONObj.object = object;
-////                    GeoJsonLayer layer = new GeoJsonLayer(mapFragment.getMap(), Selected_JSONObj.object);
-////                    layer.addLayerToMap();
                     Message message = new Message();
                     message.what = SHOW_RESPONSE;
                     message.obj = data;
@@ -141,5 +144,59 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         }).start();
+    }
+
+    private void mapsetting(GeoJsonLayer layer){
+
+       // GeoJsonPolygonStyle style =  layer.getDefaultPolygonStyle();
+        layer.getDefaultPolygonStyle().toPolygonOptions().clickable(true);
+        ArrayList<Double> values = new ArrayList<>();
+
+        for (GeoJsonFeature feature : layer.getFeatures()){
+            double value = Double.parseDouble(feature.getProperty(Map_Setting.classifier));
+            values.add(value);
+            System.out.println(value);
+        }
+
+        Collections.sort(values);
+        double max = values.get(0);
+        System.out.println("max======================"+max);
+        double min = values.get(values.size() - 1 );
+        System.out.println("min======================"+min);
+        int step =  (int) (max - min)/Integer.parseInt(Map_Setting.level);
+
+        for (GeoJsonFeature feature : layer.getFeatures()){
+            String type = feature.getGeometry().getType();
+            if (type.equals("MultiPolygon")){
+                double value = Double.parseDouble(feature.getProperty(Map_Setting.classifier));
+                int index = (int) (value - min)/step;
+                if (Map_Setting.color_select.equals("Red")){
+                    feature.getPolygonStyle().setStrokeWidth(1);
+                    feature.getPolygonStyle().setFillColor(Colors_Collection.reds.get(index));
+                }
+                else if(Map_Setting.color_select.equals("Blue")){
+                    feature.getPolygonStyle().setStrokeWidth(1);
+                    feature.getPolygonStyle().setFillColor(Colors_Collection.blues.get(index));
+                }
+                else if (Map_Setting.color_select.equals("Green")){
+                    feature.getPolygonStyle().setStrokeWidth(1);
+                    feature.getPolygonStyle().setFillColor(Colors_Collection.greens.get(index));
+                }
+                else if (Map_Setting.color_select.equals("Gray")){
+                    feature.getPolygonStyle().setStrokeWidth(1);
+                    feature.getPolygonStyle().setFillColor(Colors_Collection.grays.get(index));
+                }
+                else{
+                    feature.getPolygonStyle().setStrokeWidth(1);
+                    feature.getPolygonStyle().setFillColor(Colors_Collection.purples.get(index));
+                }
+            }
+        }
+
+
+    }
+
+    public boolean isMyLocationButtonEnabled (){
+        return true;
     }
 }
