@@ -11,16 +11,15 @@
     android:orientation="vertical">
 
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <fragment
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/map_fragment"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
-        </fragment>
-    </FrameLayout>
+            android:layout_height="200dp"
+            android:name="com.android.aurin.aurin_android_zhenwei.DetailActivity"
+            tools:context="com.android.aurin.aurin_android_zhenwei.DetailActivity"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +28,7 @@
 
 
         <TableLayout
+            android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -84,8 +84,8 @@
                     />
 
             </TableRow>
-            <TableRow
-                android:layout_margin="10dp">
+
+                <TableRow>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,9 +95,12 @@
                     android:id="@+id/abstract_text"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    />
 
-            </TableRow>
+                </TableRow>
+
+
             <TableRow>
                 <TextView
                     android:layout_height="wrap_content"

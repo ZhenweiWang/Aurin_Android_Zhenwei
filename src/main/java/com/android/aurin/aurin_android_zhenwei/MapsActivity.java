@@ -19,9 +19,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polygon;
 import com.google.maps.android.geojson.GeoJsonFeature;
 import com.google.maps.android.geojson.GeoJsonLayer;
+import com.google.maps.android.geojson.GeoJsonPolygonStyle;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +41,7 @@ import java.util.Collections;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleMap.OnMyLocationButtonClickListener,
-        ActivityCompat.OnRequestPermissionsResultCallback{
+        ActivityCompat.OnRequestPermissionsResultCallback,GoogleMap.OnMapClickListener {
 
     private GoogleMap mMap;
 
@@ -57,6 +60,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean mPermissionDenied = false;
 
     private boolean mLocationPermissionDenied = false;
+
+    private ArrayList<LatLng> marks = new ArrayList<>();
     //    JSONArray jsonArray = new JSONArray();
 //    JSONObject jobj = new JSONObject();
     SupportMapFragment mapFragment;
@@ -73,7 +78,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Selected_JSONObj.object = object;
                         GeoJsonLayer layer = new GeoJsonLayer(mapFragment.getMap(), Selected_JSONObj.object);
                         mapsetting(layer);
-                        layer.addLayerToMap();
+                       // layer.addLayerToMap();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -95,6 +100,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         sendRequestWithURLConnection();
+
 
     }
 
@@ -138,7 +144,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mUiSettings.setTiltGesturesEnabled(isChecked(R.id.tilt_toggle));
         mUiSettings.setRotateGesturesEnabled(isChecked(R.id.rotate_toggle));
 
+        double lat = (Picked_City.picked_city.getLowerLa()+Picked_City.picked_city.getHigherLa())/2.0;
+        double longi =(Picked_City.picked_city.getLowerLon()+Picked_City.picked_city.getHigherLon())/2.0;
+        double hlo = Picked_City.picked_city.getHigherLon();
+        double llo = Picked_City.picked_city.getLowerLon();
+
+        int zoom = (int) Math.log(210/(hlo - llo)) + 2;
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, longi), zoom));
+
         enableMyLocation();
+
+        mMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener(){
+            @Override
+            public void onPolygonClick(Polygon polygon) {
+                System.out.println("clicked!!!");
+            }
+        });
     }
 
     private void enableMyLocation() {
@@ -281,6 +303,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
                 mUiSettings.setMyLocationButtonEnabled(true);
                 mMyLocationButtonCheckbox.setChecked(true);
+                enableMyLocation();
             } else {
                 mLocationPermissionDenied = true;
             }
@@ -320,6 +343,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     private void sendRequestWithURLConnection() {
+        final String typename = Picked_City.cap_picked.name;
+        final double lla = Picked_City.picked_city.getLowerLa();
+        final double llo = Picked_City.picked_city.getLowerLon();
+        final double hla = Picked_City.picked_city.getHigherLa();
+        final double hlo = Picked_City.picked_city.getHigherLon();
+
         //System.out.println("URL connection");
         new Thread(new Runnable() {
             @Override
@@ -328,9 +357,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 try{
                     URL url = new URL("https://geoserver.aurin.org.au/wfs?" +
                             "request=GetFeature&service=WFS&version=1.1.0&" +
-                            "TypeName=grattan:Grattan_Job_Access2011&" +
-                            "MaxFeatures=1000&outputFormat=json&CQL_FILTER=BBOX" +
-                            "(the_geom,-37.843287468235644,144.88364340276473,-37.7613640945703,145.05084158388618)");
+                            "TypeName="+ typename+ "&" +
+                            "MaxFeatures=100&outputFormat=json&CQL_FILTER=BBOX" +
+                            "(the_geom,"+lla+","+llo+","+hla+","+hlo+")");
+
+                   // +")&PropertyName="+Map_Setting.attribute+","+Map_Setting.classifier
+
+                    System.out.println(url);
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setConnectTimeout(8000);
@@ -361,8 +394,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void mapsetting(GeoJsonLayer layer){
 
-       // GeoJsonPolygonStyle style =  layer.getDefaultPolygonStyle();
-        layer.getDefaultPolygonStyle().toPolygonOptions().clickable(true);
+        //GeoJsonPolygonStyle style;
+        //layer.getDefaultPolygonStyle().toPolygonOptions().clickable(true);
         ArrayList<Double> values = new ArrayList<>();
 
         for (GeoJsonFeature feature : layer.getFeatures()){
@@ -374,44 +407,107 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Collections.sort(values);
         double max = values.get(0);
         System.out.println("max======================"+max);
-        double min = values.get(values.size() - 1 );
+        double min = values.get(values.size() - 1);
         System.out.println("min======================"+min);
         int step =  (int) (max - min)/Integer.parseInt(Map_Setting.level);
 
-        for (GeoJsonFeature feature : layer.getFeatures()){
+        for (final GeoJsonFeature feature : layer.getFeatures()){
             String type = feature.getGeometry().getType();
             if (type.equals("MultiPolygon")){
                 double value = Double.parseDouble(feature.getProperty(Map_Setting.classifier));
                 int index = (int) (value - min)/step;
                 if (Map_Setting.color_select.equals("Red")){
-                    feature.getPolygonStyle().setStrokeWidth(1);
-                    feature.getPolygonStyle().setFillColor(Colors_Collection.reds.get(index));
-                    System.out.println("COOOOOOOOOOOOOLOR"+Colors_Collection.reds.get(index));
-                    System.out.println(index);
+                    //feature.getPolygonStyle().setStrokeWidth(1);
+                    GeoJsonPolygonStyle style = new GeoJsonPolygonStyle();
+                    style.setFillColor(Colors_Collection.reds.get(index));
+                    style.setStrokeWidth(1);
+                    style.toPolygonOptions().clickable(true);
+                    feature.setPolygonStyle(style);
+                    getPosition(feature);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+
                 }
                 else if(Map_Setting.color_select.equals("Blue")){
-                    feature.getPolygonStyle().setStrokeWidth(1);
-                    feature.getPolygonStyle().setFillColor(Colors_Collection.blues.get(index));
+                    GeoJsonPolygonStyle style = new GeoJsonPolygonStyle();
+                    style.setFillColor(Colors_Collection.blues.get(index));
+                    style.setStrokeWidth(1);
+                    style.toPolygonOptions().clickable(true);
+                    feature.setPolygonStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+
                 }
                 else if (Map_Setting.color_select.equals("Green")){
-                    feature.getPolygonStyle().setStrokeWidth(1);
-                    feature.getPolygonStyle().setFillColor(Colors_Collection.greens.get(index));
+                    GeoJsonPolygonStyle style = new GeoJsonPolygonStyle();
+                    style.setFillColor(Colors_Collection.greens.get(index));
+                    style.setStrokeWidth(1);
+                    style.toPolygonOptions().clickable(true);
+                    feature.setPolygonStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
                 }
                 else if (Map_Setting.color_select.equals("Gray")){
-                    feature.getPolygonStyle().setStrokeWidth(1);
-                    feature.getPolygonStyle().setFillColor(Colors_Collection.grays.get(index));
+                    GeoJsonPolygonStyle style = new GeoJsonPolygonStyle();
+                    style.setFillColor(Colors_Collection.grays.get(index));
+                    style.setStrokeWidth(1);
+                    style.toPolygonOptions().clickable(true);
+                    feature.setPolygonStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+
                 }
                 else{
-                    feature.getPolygonStyle().setStrokeWidth(1);
-                    feature.getPolygonStyle().setFillColor(Colors_Collection.purples.get(index));
+                    GeoJsonPolygonStyle style = new GeoJsonPolygonStyle();
+                    style.setFillColor(Colors_Collection.purples.get(index));
+                    style.setStrokeWidth(1);
+                    style.toPolygonOptions().clickable(true);
+                    feature.setPolygonStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
                 }
             }
         }
-
-
     }
 
     private boolean isChecked(int id) {
         return ((CheckBox) findViewById(id)).isChecked();
     }
+
+    @Override
+    public void onMapClick(LatLng point) {
+        mMap.addMarker(new MarkerOptions().position(point).snippet("clicked!"));
+        System.out.println("Click!!!!!!!!!!");
+
+    }
+
+    private void getPosition(GeoJsonFeature feature){
+        String str = feature.getProperty("bbox");
+        String positions = (String) str.subSequence(1, str.length() - 1);
+        String[] bbox = positions.split(",");
+        double llo = Double.parseDouble(bbox[0]);
+        double lla = Double.parseDouble(bbox[1]);
+        double hlo = Double.parseDouble(bbox[2]);
+        double hla = Double.parseDouble(bbox[3]);
+        double centerlo = (llo+hlo)/2.0;
+        double centerla = (lla+hla)/2.0;
+
+        LatLng marker_point = new LatLng(centerla,centerlo);
+
+        String title =Map_Setting.attribute.concat(":").concat(feature.getProperty(Map_Setting.attribute));
+        String value = Map_Setting.classifier.concat(":").concat(feature.getProperty(Map_Setting.classifier));
+
+        Marker marker = mMap.addMarker(new MarkerOptions().position(marker_point).title(title).snippet(value));
+        marker.setAlpha(1);
+    }
+
+//    @Override
+//    public void onPolygonClick(Polygon polygon) {
+//        System.out.println("click!!!!!");
+//    }
+
+//    private void addMarker (GeoJsonFeature feature){
+//        LatLng center = feature.getBoundingBox().getCenter();
+//        Marker marker = mMap.addMarker(new MarkerOptions().position(center).snippet(feature.getProperty(Map_Setting.attribute)));
+//    }
 }

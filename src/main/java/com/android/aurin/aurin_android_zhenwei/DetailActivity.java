@@ -1,8 +1,8 @@
 package com.android.aurin.aurin_android_zhenwei;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,6 +31,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         if ("action".equals(intent.getAction())) {
 
             Capabilities cap = (Capabilities)intent.getSerializableExtra("capobj");
+            Picked_City.cap_picked = cap;
 
             TextView title = (TextView) findViewById(R.id.title_text);
             title.setText(cap.title);
@@ -73,9 +74,17 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        double lla = Picked_City.cap_picked.bbox.getLowerLa();
+        double hla = Picked_City.cap_picked.bbox.getHigherLa();
+        double llo = Picked_City.cap_picked.bbox.getLowerLon();
+        double hlo = Picked_City.cap_picked.bbox.getHigherLon();
+
+        LatLng center = new LatLng((lla+hla)/2.0,(llo+hlo)/2.0);
+        int zoom = (int) Math.log(210/(hlo - llo)) + 1;
+        mMap.addMarker(new MarkerOptions().position(center).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(center));
         mMap.isMyLocationEnabled();
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, zoom));
     }
+
 }

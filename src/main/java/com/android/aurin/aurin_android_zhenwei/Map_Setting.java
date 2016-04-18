@@ -8,5 +8,5 @@ public final class Map_Setting {
     public static String classifier;
     public static String color_select;
     public static String level;
-    public static String opacity;
+    public static int opacity;
 }

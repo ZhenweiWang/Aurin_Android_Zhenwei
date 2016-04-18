@@ -30,13 +30,24 @@ public class MainActivity extends AppCompatActivity {
     private static final String[] state=
             {"Australian Capital Territory","New South Wales","Northern Territory",
                     "Queensland","South Australia","Tasmania","Victoria","Western Australia"};
+
     private static final String[] act={"Australian Capital Territory"};
+
     private static final String[] nsw={"Greater Sydney","Rest of NSW"};
+
     private static final String[] nt={"Greater Darwin","Rest of NT"};
+
     private static final String[] qld={"Greater Brisbane","Rest of Qld"};
+
     private static final String[] sau={"Greater Adelaide","Rest of SA"};
+
     private static final String[] tas={"Greater Hobart","Rest of Tas"};
-    private static final String[] vic={"Greater Melbourne","Rest of Vic"};
+
+    private static final String[] vic={"Greater Melbourne","Melbourne Inner","Melbourne Inner East",
+            "Melbourne Inner South","Melbourne North East","Melbourne North West","Melbourne Outer East",
+            "Melbourne South East","Melbourne West","Ballarat","Bendigo","Geelong","Hume","Shepparton","North West",
+            "Mornington Peninsula","Warrnambool and South West","Latrobe Gippsland"};
+
     private static final String[] wau={"Greater Perth","Rest of WA"};
 
     private TextView view1,view2;
@@ -107,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
                 //bundle.putParcelableArrayList("titles", titles);
                 String bbox = spinner2.getSelectedItem().toString();
                 BBOX filter_bbox = City_BBOX.city_bbox.get(bbox);
+                Picked_City.picked_city = filter_bbox;
+                city_filter(filter_bbox);
                 intent.putExtra("bbox", filter_bbox);
                 System.out.println(filter_bbox.getHigherLa());
                 startActivity(intent);
@@ -123,6 +136,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+
+    private void city_filter(BBOX city){
+        double city_lowla = city.getLowerLa();
+        double city_lowlo = city.getLowerLon();
+        double city_hila = city.getHigherLa();
+        double city_hilo = city.getHigherLon();
+
+        for (Capabilities cap : AllDatastes.lists){
+            if (cap.bbox.getHigherLon()<city_lowlo && cap.bbox.getHigherLa()<city_lowla){
+                AllDatastes.lists.remove(cap);
+            }
+            else if(cap.bbox.getLowerLa()>city_hila && cap.bbox.getLowerLon()>city_hilo){
+                AllDatastes.lists.remove(cap);
+            }
+
+        }
 
     }
 

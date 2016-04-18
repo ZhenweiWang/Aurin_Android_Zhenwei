@@ -181,10 +181,16 @@ public class Map_Filter extends AppCompatActivity {
                     String attselec = sele_atrri.getSelectedItem().toString();
                     Map_Setting.attribute = attselec;
                 }
+                else{
+                    Map_Setting.attribute = "NO attributes";
+                }
 
                 if(! sele_class.getSelectedItem().equals(null)){
                     String classselec = sele_class.getSelectedItem().toString();
                     Map_Setting.classifier = classselec;
+                }
+                else {
+                    Map_Setting.classifier = "1";
                 }
 
 
@@ -194,7 +200,7 @@ public class Map_Filter extends AppCompatActivity {
                 String colorselec = sele_color.getSelectedItem().toString();
                 Map_Setting.color_select = colorselec;
 
-                String opacityselec = seek_value.getText().toString();
+                int opacityselec = sele_opacity.getProgress();
                 Map_Setting.opacity = opacityselec;
 
                 Intent intent = new Intent(Map_Filter.this, MapsActivity.class);
@@ -211,13 +217,15 @@ public class Map_Filter extends AppCompatActivity {
     }
 
     private void sendRequestWithURLConnection() {
+        final String typename = Picked_City.cap_picked.name;
         //System.out.println("URL connection");
         new Thread(new Runnable() {
             @Override
             public void run() {
                 HttpURLConnection connection = null;
                 try{
-                    URL url = new URL("https://geoserver.aurin.org.au/wfs?request=DescribeFeatureType&service=WFS&version=1.1.0&TypeName=grattan:Grattan_Job_Access2011");
+                    URL url = new URL("https://geoserver.aurin.org.au/wfs?request=DescribeFeatureType&service=WFS&version=1.1.0&TypeName="+typename);
+                    System.out.println(url);
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setConnectTimeout(8000);
