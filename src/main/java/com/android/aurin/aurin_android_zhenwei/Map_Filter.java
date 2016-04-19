@@ -42,6 +42,7 @@ public class Map_Filter extends AppCompatActivity {
     private SeekBar sele_opacity;
     private TextView seek_value;
     private Button view;
+    private Button fig;
 
     private ArrayAdapter<String> adapter1;
     private ArrayAdapter<String> adapter2;
@@ -82,6 +83,7 @@ public class Map_Filter extends AppCompatActivity {
         seek_value = (TextView) findViewById(R.id.seek_value);
         sele_opacity = (SeekBar) findViewById(R.id.select_opacity);
         view = (Button) findViewById(R.id.submit);
+        fig = (Button) findViewById(R.id.figure_view);
 
         adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,attributes);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -177,6 +179,41 @@ public class Map_Filter extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (!sele_atrri.getSelectedItem().equals(null)) {
+                    String attselec = sele_atrri.getSelectedItem().toString();
+                    Map_Setting.attribute = attselec;
+                } else {
+                    Map_Setting.attribute = "NO attributes";
+                }
+
+                if (!sele_class.getSelectedItem().equals(null)) {
+                    String classselec = sele_class.getSelectedItem().toString();
+                    Map_Setting.classifier = classselec;
+                } else {
+                    Map_Setting.classifier = "1";
+                }
+
+
+                String levelselec = sele_level.getSelectedItem().toString();
+                Map_Setting.level = levelselec;
+
+                String colorselec = sele_color.getSelectedItem().toString();
+                Map_Setting.color_select = colorselec;
+
+                int opacityselec = sele_opacity.getProgress();
+                Map_Setting.opacity = opacityselec;
+
+                Intent intent = new Intent(Map_Filter.this, MapsActivity.class);
+//                intent.setAction("action");
+//                intent.putExtra("organdselec",organdselec);
+                startActivity(intent);
+            }
+        });
+
+        fig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
                 if(! sele_atrri.getSelectedItem().equals(null)){
                     String attselec = sele_atrri.getSelectedItem().toString();
                     Map_Setting.attribute = attselec;
@@ -203,7 +240,7 @@ public class Map_Filter extends AppCompatActivity {
                 int opacityselec = sele_opacity.getProgress();
                 Map_Setting.opacity = opacityselec;
 
-                Intent intent = new Intent(Map_Filter.this, MapsActivity.class);
+                Intent intent = new Intent(Map_Filter.this, ChartActivity.class);
 //                intent.setAction("action");
 //                intent.putExtra("organdselec",organdselec);
                 startActivity(intent);

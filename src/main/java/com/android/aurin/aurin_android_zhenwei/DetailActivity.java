@@ -63,6 +63,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
                 }
             });
 
+
         }
 
 

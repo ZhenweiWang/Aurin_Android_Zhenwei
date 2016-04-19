@@ -104,14 +104,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
     <Button
-        android:layout_gravity="right"
-        android:layout_marginRight="20dp"
+        android:id="@+id/figure_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Fig"
+        style="@style/Button"/>
+
+    <Button
+        android:layout_marginLeft="120dp"
         android:layout_marginTop="20dp"
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View"
+        android:text="Map"
         style="@style/Button"/>
+    </LinearLayout>
 
 </LinearLayout>

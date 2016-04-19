@@ -12,13 +12,11 @@
 
 
 
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        <fragment android:name="com.google.android.gms.maps.SupportMapFragment"
             android:id="@+id/map_fragment"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:name="com.android.aurin.aurin_android_zhenwei.DetailActivity"
-            tools:context="com.android.aurin.aurin_android_zhenwei.DetailActivity"
-            class="com.google.android.gms.maps.SupportMapFragment" />
+             />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,19 +38,12 @@
                 <Button
                     android:id="@+id/show_map"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Show Map"
+                    android:layout_width="match_parent"
+                    android:text="Visualization"
                     style="@style/Button"
-                    android:layout_gravity="fill_horizontal"/>
+                    />
 
-                <Button
-                    android:id="@+id/show_figure"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Show FIG"
-                    style="@style/Button"
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="fill_horizontal"/>
+
             </TableRow>
 
             <TableRow
@@ -90,7 +81,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Abstract:"
-                    android:textSize="20dip"/>
+                    android:textSize="20dip"
+                    android:layout_marginLeft="10dp"/>
                 <TextView
                     android:id="@+id/abstract_text"
                     android:layout_height="wrap_content"
