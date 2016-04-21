@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -41,8 +41,8 @@ public class Map_Filter extends AppCompatActivity {
     private Spinner sele_color;
     private SeekBar sele_opacity;
     private TextView seek_value;
-    private Button view;
-    private Button fig;
+    private ImageButton view;
+    private ImageButton fig;
 
     private ArrayAdapter<String> adapter1;
     private ArrayAdapter<String> adapter2;
@@ -82,8 +82,8 @@ public class Map_Filter extends AppCompatActivity {
         sele_color = (Spinner) findViewById(R.id.select_color);
         seek_value = (TextView) findViewById(R.id.seek_value);
         sele_opacity = (SeekBar) findViewById(R.id.select_opacity);
-        view = (Button) findViewById(R.id.submit);
-        fig = (Button) findViewById(R.id.figure_view);
+        view = (ImageButton) findViewById(R.id.submit);
+        fig = (ImageButton) findViewById(R.id.figure_view);
 
         adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,attributes);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
