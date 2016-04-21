@@ -8,47 +8,59 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/About_usBackgroud"
     tools:context="com.android.aurin.aurin_android_zhenwei.AboutUsActivity">
 
     <ImageView
-
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/melbourneuni_small"/>
+        android:layout_height="wrap_content"
+        android:src="@drawable/artboard_1"
+        android:layout_marginTop="-90dp"/>
 
     <ImageView
+
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/aurinlogoaaa"/>
+        android:layout_height="120dp"
+        android:src="@drawable/Unimelb"
+        android:layout_marginTop="-80dp"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="__________________________________________________________"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Supervisor: Professor Richard Sinnott" />
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="__________________________________________________________"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Supervisor: Mr. Luca Morandini"/>
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="__________________________________________________________"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Designer:    Zhenwei Wang"/>
+            android:text="App Designer:    Zhenwei Wang"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="__________________________________________________________"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Follow AURIN at SNS:"/>
 
 
     </LinearLayout>
@@ -56,29 +68,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:stretchColumns="1">
+        android:orientation="vertical"
+        android:stretchColumns="1"
+        android:layout_marginTop="60dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow AURIN at SNS:"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
 
         <ImageButton
             android:id="@+id/facebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/facebook"
-            android:layout_marginLeft="95dp"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/facebookbutton"
+            android:layout_marginLeft="87dp"/>
 
         <ImageButton
             android:id="@+id/twitter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/twitter"
-           />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/twitterbutton"
+            android:layout_marginLeft="20dp"/>
 
         <ImageButton
             android:id="@+id/instagram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/instagram"
-            />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/linkedinbutton"
+            android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+
 
     </LinearLayout>
     <TextView
