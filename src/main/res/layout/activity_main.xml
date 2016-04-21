@@ -7,12 +7,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/white"
+    android:background="@drawable/About_usBackgroud"
     tools:context="com.android.aurin.aurin_android_zhenwei.MainActivity"
     android:orientation="vertical"
     android:stretchColumns="1">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/artboard_1"
+        android:layout_marginTop="-90dp"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/spinner1_textview"
@@ -24,71 +34,51 @@
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Spinner>
-
-
-
-
+            android:layout_height="wrap_content">
+        </Spinner>
 
         <TextView
             android:id="@+id/spinner2_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select  Area: "
-            />
+            android:text="Select  Area: " />
 
         <Spinner
             android:id="@+id/spinner2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Spinner>
+            android:layout_height="wrap_content">
+        </Spinner>
+    </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/aurinlogoaaa"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:stretchColumns="1">
+        android:stretchColumns="1"
+        android:layout_marginTop="100dp">
 
-        <Button
-            android:id="@+id/about_us"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="About us"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
-            android:shadowDx="0"
-            android:shadowDy="-1"
-            android:shadowRadius="0.2"
-            style="@style/Button"/>
-
-        <Button
-            android:id="@+id/next1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="Search"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
-            style="@style/Button"/>
-
-        <Button
+        <ImageButton
             android:id="@+id/webview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Web View"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
-            style="@style/Button"/>
+            android:layout_width="187dp"
+            android:layout_height="50dp"
+
+            android:background="@drawable/webviewbutton" />
+
+        <ImageButton
+            android:id="@+id/next1"
+            android:layout_width="202dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/searchbutton"/>
 
     </RelativeLayout>
+    <ImageButton
+        android:id="@+id/about_us"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:background="@drawable/aboutusbutton"
+        android:layout_alignParentBottom="true"/>
 
 
 </LinearLayout>
