@@ -1,17 +1,19 @@
 package com.android.aurin.aurin_android_zhenwei;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             "Western Australia - Outback","Western Australia - Wheat Belt"};
 
     private TextView view1,view2;
-    private Button next1;
+    private ImageButton next1;
     private Spinner spinner1,spinner2;
     private ArrayAdapter<String> adapter1;
     private ArrayAdapter<String> adapter2;
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Button web = (Button) findViewById(R.id.webview);
+        ImageButton web = (ImageButton) findViewById(R.id.webview);
         web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        next1 = (Button) findViewById(R.id.next1);
+        next1 = (ImageButton) findViewById(R.id.next1);
         next1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Button aboutus = (Button) findViewById(R.id.about_us);
+        ImageButton aboutus = (ImageButton) findViewById(R.id.about_us);
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -59,10 +59,7 @@
         <Spinner
             android:id="@+id/select_level"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </Spinner>
-
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -77,17 +74,15 @@
         <Spinner
             android:id="@+id/select_color"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </Spinner>
-
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/seekbarlayout">
         <TextView
             android:id="@+id/seek_value"
             android:layout_width="match_parent"
@@ -105,27 +100,25 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="361dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/figure_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:text="Fig"
-        style="@style/Button"/>
+        <ImageButton
+            android:id="@+id/figure_view"
+            android:layout_width="187dp"
+            android:layout_height="50dp"
+            android:background="@drawable/figurebutton"/>
 
-    <Button
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map"
-        style="@style/Button"/>
+        <ImageButton
+            android:id="@+id/submit"
+            android:layout_width="202dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/mapingbutton"/>
+
     </LinearLayout>
+
+
 
 </LinearLayout>

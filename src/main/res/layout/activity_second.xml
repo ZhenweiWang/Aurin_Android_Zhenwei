@@ -9,9 +9,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.aurin.aurin_android_zhenwei.SecondActivity"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@drawable/aboutusback">
 
-    <!--  to acquire focus -->
     <LinearLayout
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -37,7 +36,7 @@
             >
 
             <EditText android:id="@+id/etSearch"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:background="@drawable/search_frame"
@@ -46,31 +45,24 @@
                 android:hint="Keywords: Employment eg."
                 android:layout_weight="1"/>
 
-            <Button
-                android:id="@+id/keyword"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/etSearch"
-                android:text="Go"
-                android:layout_alignRight="@+id/etSearch"
-                android:layout_marginRight="0dp"
-                style="@style/Button"/>
+
         </LinearLayout>
 
     </RelativeLayout>
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:stretchColumns="1"
         android:layout_margin="15dp">
-        <TableRow>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="Select an Organization: "
+            android:text="Organization Filter: "
             android:textSize="15sp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:maxLines="2"
+            android:layout_marginTop="0dp"/>
 
          <Spinner
                 android:id="@+id/organization"
@@ -80,8 +72,13 @@
                 android:layout_weight="1">
 
         </Spinner>
-        </TableRow>
-    </TableLayout>
+        <ImageButton
+            android:id="@+id/keyword"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="0dp"
+            android:background="@drawable/gobutton"/>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/list_view"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@drawable/About_usBackgroud"
+    android:background="@drawable/aboutusback"
     tools:context="com.android.aurin.aurin_android_zhenwei.AboutUsActivity">
 
     <ImageView
@@ -21,7 +21,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:src="@drawable/Unimelb"
+        android:src="@drawable/unimelb"
         android:layout_marginTop="-80dp"/>
 
 
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Supervisor: Professor Richard Sinnott" />
+            android:text="Supervisor:      Professor Richard Sinnott" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Supervisor: Mr. Luca Morandini"/>
+            android:text="Supervisor:      Mr. Luca Morandini"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="App Designer:    Zhenwei Wang"/>
+            android:text="App Designer: Zhenwei Wang"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

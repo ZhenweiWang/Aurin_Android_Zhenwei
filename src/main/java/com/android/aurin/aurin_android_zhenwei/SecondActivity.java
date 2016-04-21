@@ -1,13 +1,13 @@
 package com.android.aurin.aurin_android_zhenwei;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -83,12 +83,12 @@ public class SecondActivity extends AppCompatActivity{
             });
 
 
-            Button go;
+            ImageButton go;
 
             eSearch = (EditText) findViewById(R.id.etSearch);
 
 
-            go = (Button) findViewById(R.id.keyword);
+            go = (ImageButton) findViewById(R.id.keyword);
             go.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

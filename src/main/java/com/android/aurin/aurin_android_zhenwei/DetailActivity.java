@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -54,7 +54,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
             TextView hilo = (TextView) findViewById(R.id.higherlo_text);
             hilo.setText(cap.bbox.getHigherLon().toString());
 
-            Button showmap = (Button) findViewById(R.id.show_map);
+            ImageButton showmap = (ImageButton) findViewById(R.id.show_map);
             showmap.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

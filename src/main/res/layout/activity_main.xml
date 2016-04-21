@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/About_usBackgroud"
+    android:background="@drawable/aboutusback"
     tools:context="com.android.aurin.aurin_android_zhenwei.MainActivity"
     android:orientation="vertical"
     android:stretchColumns="1">
@@ -15,21 +15,21 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/artboard_1"
-        android:layout_marginTop="-90dp"/>
+        android:src="@drawable/mainaurinlogo"
+        android:layout_marginTop="-110dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="-40dp">
 
         <TextView
             android:id="@+id/spinner1_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select State:          "
-            />
+            android:textSize="28dp"/>
 
         <Spinner
             android:id="@+id/spinner1"
@@ -41,7 +41,8 @@
             android:id="@+id/spinner2_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select  Area: " />
+            android:text="Select  Area: "
+            android:textSize="28dp"/>
 
         <Spinner
             android:id="@+id/spinner2"
@@ -56,7 +57,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:stretchColumns="1"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="20dp">
 
         <ImageButton
             android:id="@+id/webview"
