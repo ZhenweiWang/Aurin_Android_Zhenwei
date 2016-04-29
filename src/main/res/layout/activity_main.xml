@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="-40dp">
+        android:layout_marginTop="-90dp">
 
         <TextView
             android:id="@+id/spinner1_textview"
@@ -62,23 +62,23 @@
 
         <ImageButton
             android:id="@+id/webview"
-            android:layout_width="187dp"
-            android:layout_height="50dp"
+            android:layout_width="158dp"
+            android:layout_height="45dp"
 
             android:background="@drawable/webviewbutton" />
 
         <ImageButton
             android:id="@+id/next1"
-            android:layout_width="202dp"
-            android:layout_height="50dp"
+            android:layout_width="178dp"
+            android:layout_height="45dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/searchbutton"/>
 
     </RelativeLayout>
     <ImageButton
         android:id="@+id/about_us"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
         android:background="@drawable/aboutusbutton"
         android:layout_alignParentBottom="true"/>
 

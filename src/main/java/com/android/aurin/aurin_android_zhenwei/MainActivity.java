@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 String bbox = spinner2.getSelectedItem().toString();
                 BBOX filter_bbox = City_BBOX.city_bbox.get(bbox);
                 Picked_City.picked_city = filter_bbox;
-                city_filter(filter_bbox);
+               // city_filter(filter_bbox);
                 intent.putExtra("bbox", filter_bbox);
                 System.out.println(filter_bbox.getHigherLa());
                 startActivity(intent);

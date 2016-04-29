@@ -21,49 +21,55 @@
 
     <ImageButton
         android:id="@+id/show_map"
-        android:layout_height="50dp"
-        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
         android:background="@drawable/visualizationbutton"
         android:layout_marginTop="10dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:orientation="vertical"
         android:fillViewport="false">
 
 
-        <TableLayout
-            android:scrollbars="vertical"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TableRow
+            <LinearLayout
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_height="wrap_content"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:text="Title:"
                     android:textSize="20dip" />
                 <TextView
                     android:id="@+id/title_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-            </TableRow>
+            </LinearLayout>
             <TextView
                 android:layout_margin="10dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="__________________________________________________"
+                android:text="__________________________________________"
                 />
-            <TableRow
+            <LinearLayout
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_height="wrap_content"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:text="Org:"
                     android:textSize="20dip"
                     />
@@ -73,18 +79,21 @@
                     android:layout_height="wrap_content"
                     />
 
-            </TableRow>
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="__________________________________________________"
+                android:text="__________________________________________"
                 android:layout_marginLeft="10dp"/>
 
-                <TableRow
+                <LinearLayout
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                     <TextView
-                        android:layout_width="50dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Abs:"
                         android:textSize="20dip" />
@@ -94,15 +103,18 @@
                         android:layout_width="wrap_content"
                     />
 
-                </TableRow>
+                </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="__________________________________________________"
+                android:text="__________________________________________"
                 android:layout_margin="10dp"/>
 
 
-            <TableRow>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -110,8 +122,11 @@
                     android:textSize="20dip"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"/>
-            </TableRow>
-            <TableRow>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -121,8 +136,11 @@
                     android:id="@+id/lowerla_text"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            </TableRow>
-            <TableRow>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -132,8 +150,11 @@
                     android:id="@+id/higherla_text"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            </TableRow>
-            <TableRow>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -143,8 +164,11 @@
                     android:id="@+id/lowerlo_text"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            </TableRow>
-            <TableRow>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -154,10 +178,10 @@
                     android:id="@+id/higherlo_text"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
-            </TableRow>
+            </LinearLayout>
 
 
-        </TableLayout>
+        </LinearLayout>
 
     </ScrollView>
 

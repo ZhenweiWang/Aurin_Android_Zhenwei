@@ -20,7 +20,7 @@
     <ImageView
 
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:src="@drawable/unimelb"
         android:layout_marginTop="-80dp"/>
 
@@ -29,11 +29,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="__________________________________________________________"/>
+            android:text="__________________________________________________"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="__________________________________________________________"/>
+            android:text="__________________________________________________"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="__________________________________________________________"/>
+            android:text="__________________________________________________"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="__________________________________________________________"/>
+            android:text="__________________________________________________"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:stretchColumns="1"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,22 +85,22 @@
 
         <ImageButton
             android:id="@+id/facebook"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/facebookbutton"
             android:layout_marginLeft="87dp"/>
 
         <ImageButton
             android:id="@+id/twitter"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/twitterbutton"
             android:layout_marginLeft="20dp"/>
 
         <ImageButton
             android:id="@+id/instagram"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/linkedinbutton"
             android:layout_marginLeft="20dp"/>
         </LinearLayout>

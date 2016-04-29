@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.maps.android.geojson.GeoJsonFeature;
 import com.google.maps.android.geojson.GeoJsonLayer;
+import com.google.maps.android.geojson.GeoJsonLineStringStyle;
 import com.google.maps.android.geojson.GeoJsonPolygonStyle;
 
 import org.json.JSONException;
@@ -420,7 +421,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     //feature.getPolygonStyle().setStrokeWidth(1);
                     GeoJsonPolygonStyle style = new GeoJsonPolygonStyle();
                     style.setFillColor(Colors_Collection.reds.get(index));
-                    style.setStrokeWidth(1);
+                    style.setStrokeWidth(2);
                     style.toPolygonOptions().clickable(true);
                     feature.setPolygonStyle(style);
                     getPosition(feature);
@@ -434,6 +435,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     style.setStrokeWidth(1);
                     style.toPolygonOptions().clickable(true);
                     feature.setPolygonStyle(style);
+                    getPosition(feature);
                     layer.addFeature(feature);
                     layer.addLayerToMap();
 
@@ -444,6 +446,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     style.setStrokeWidth(1);
                     style.toPolygonOptions().clickable(true);
                     feature.setPolygonStyle(style);
+                    getPosition(feature);
                     layer.addFeature(feature);
                     layer.addLayerToMap();
                 }
@@ -453,6 +456,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     style.setStrokeWidth(1);
                     style.toPolygonOptions().clickable(true);
                     feature.setPolygonStyle(style);
+                    getPosition(feature);
                     layer.addFeature(feature);
                     layer.addLayerToMap();
 
@@ -463,9 +467,48 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     style.setStrokeWidth(1);
                     style.toPolygonOptions().clickable(true);
                     feature.setPolygonStyle(style);
+                    getPosition(feature);
                     layer.addFeature(feature);
                     layer.addLayerToMap();
                 }
+            }
+            else if (type.equals("MultiLineString")){
+                if(Map_Setting.color_select.equals("Red")){
+                    GeoJsonLineStringStyle style = new GeoJsonLineStringStyle();
+                    style.setColor(Colors_Collection.reds.get(6));
+                    feature.setLineStringStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+                }
+                else if (Map_Setting.color_select.equals("Blue")){
+                    GeoJsonLineStringStyle style = new GeoJsonLineStringStyle();
+                    style.setColor(Colors_Collection.blues.get(6));
+                    feature.setLineStringStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+                }
+                else if (Map_Setting.color_select.equals("Green")){
+                    GeoJsonLineStringStyle style = new GeoJsonLineStringStyle();
+                    style.setColor(Colors_Collection.greens.get(6));
+                    feature.setLineStringStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+                }
+                else if (Map_Setting.color_select.equals("Grey")){
+                    GeoJsonLineStringStyle style = new GeoJsonLineStringStyle();
+                    style.setColor(Colors_Collection.grays.get(6));
+                    feature.setLineStringStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+                }
+                else{
+                    GeoJsonLineStringStyle style = new GeoJsonLineStringStyle();
+                    style.setColor(Colors_Collection.purples.get(6));
+                    feature.setLineStringStyle(style);
+                    layer.addFeature(feature);
+                    layer.addLayerToMap();
+                }
+
             }
         }
     }

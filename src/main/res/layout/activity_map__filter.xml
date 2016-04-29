@@ -112,18 +112,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="0dp">
 
         <ImageButton
             android:id="@+id/figure_view"
-            android:layout_width="187dp"
-            android:layout_height="50dp"
+            android:layout_width="158dp"
+            android:layout_height="45dp"
             android:background="@drawable/figurebutton"/>
 
         <ImageButton
             android:id="@+id/submit"
-            android:layout_width="202dp"
-            android:layout_height="50dp"
+            android:layout_width="179dp"
+            android:layout_height="45dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/mapingbutton"/>
 

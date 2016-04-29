@@ -26,13 +26,14 @@
         android:label="AURIN"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity">
+        <activity android:name=".StepthroughActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StartActivity"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".WebViewActivity" />
@@ -58,7 +59,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Map_Filter" />
-        <activity android:name=".ChartActivity"></activity>
+        <activity android:name=".ChartActivity" />
     </application>
 
 </manifest>
