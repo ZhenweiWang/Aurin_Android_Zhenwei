@@ -316,7 +316,8 @@ public class MainActivity extends AppCompatActivity {
                             //cap.image_id = R.drawable.organization;
 
                             //titles.add(cap.title);
-                            AllDatastes.lists.add(cap);
+                            if(! Big_Data.big_data.contains(cap.title))
+                                AllDatastes.lists.add(cap);
                         }
                         break;
                     }

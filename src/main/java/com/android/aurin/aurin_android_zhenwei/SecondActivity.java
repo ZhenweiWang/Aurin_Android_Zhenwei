@@ -18,7 +18,7 @@ public class SecondActivity extends AppCompatActivity{
 
 
 
-    ArrayList<Capabilities> cap2 = AllDatastes.lists;
+    ArrayList<Capabilities> cap2 = new ArrayList<>();
     ArrayList<String> spinner_Items = new ArrayList<>();
     ArrayAdapter<String> adapter1;
     public Spinner spinner;
@@ -31,22 +31,32 @@ public class SecondActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        //cap2 = AllDatastes.lists;
+        for (int i = 0; i< AllDatastes.lists.size();i++){
+            cap2.add(AllDatastes.lists.get(i));
+        }
+        System.out.println("SSSSSSSSSSSATR 2222222!!!");
 //        for(int i=0;i<cap2.size();i++){
 //            String title = cap2.get(i).title;
 //            data.add(title);
 //        }
-        for(int i =0; i<cap2.size(); i++){
-            String org = cap2.get(i).organization;
-            if(! spinner_Items.contains(org))
-                spinner_Items.add(org);
-        }
-        spinner_Items.add("All Organizations");
 
         Intent intent = getIntent();
         if ("action".equals(intent.getAction())){
             BBOX filter_bbox;
             filter_bbox = (BBOX)intent.getSerializableExtra("bbox");
             Picked_City.picked_city = filter_bbox;
+
+            System.out.println("doooooooooooooo filter!!!");
+            //filter(filter_bbox);
+            System.out.println("finishhhhhhhhhhhhh filter!!!");
+
+            for(int i =0; i<cap2.size(); i++){
+                String org = cap2.get(i).organization;
+                if(! spinner_Items.contains(org))
+                    spinner_Items.add(org);
+            }
+            spinner_Items.add("All Organizations");
 
             spinner = (Spinner) findViewById(R.id.organization);
 
@@ -122,6 +132,76 @@ public class SecondActivity extends AppCompatActivity{
         }
 
 
+    }
+
+    private void filter(BBOX filter_bbox) {
+        System.out.println("ininininini!");
+
+        double citylowlo = filter_bbox.getLowerLon();
+        double citylowla = filter_bbox.getHigherLa();
+        double cityhighlo = filter_bbox.getHigherLon();
+        double cityhighla = filter_bbox.getHigherLa();
+        double temp;
+
+        for(int i=0, len =cap2.size();i<len;i++ ){
+            double datalowlo = cap2.get(i).bbox.getLowerLon();
+            double datalowla = cap2.get(i).bbox.getHigherLa();
+            double datahighlo = cap2.get(i).bbox.getHigherLon();
+            double datahgihla = cap2.get(i).bbox.getHigherLa();
+
+            if(cityhighlo < citylowlo){
+                temp = cityhighlo;
+                cityhighlo = citylowlo;
+                citylowlo = temp;
+            }
+            if(cityhighla < citylowla){
+                temp = cityhighla;
+                cityhighla = citylowla;
+                citylowla = temp;
+            }
+            if(datahighlo < datalowlo){
+                temp = datahighlo;
+                datahighlo = datalowlo;
+                datalowlo = temp;
+            }
+            if(datahgihla < datalowla){
+                temp = datahgihla;
+                datahgihla = datalowla;
+                datalowla = temp;
+            }
+            if (max(citylowlo,datalowlo) > min(cityhighlo,datahighlo) ||
+                    max(citylowla,datalowla) > min(cityhighla,datahgihla)){
+                cap2.remove(i);
+                len--;
+                i--;
+            }
+        }
+
+        AllDatastes.list2 = cap2;
+
+        for(int i = 0; i< cap2.size(); i++){
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+cap2.get(i).name);
+        }
+        System.out.println("outouotuotuotuo!");
+    }
+
+    private double max(double a, double b) {
+        if(a>=b)
+            return a;
+        else
+            return b;
+    }
+
+    private double min(double a, double b) {
+        if (a<=b)
+            return a;
+        else
+            return b;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     class SpinnerSelectedListener implements AdapterView.OnItemSelectedListener {

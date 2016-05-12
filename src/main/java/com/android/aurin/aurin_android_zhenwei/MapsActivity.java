@@ -406,12 +406,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         Collections.sort(values);
+        if(values.size()==0){
+            return;
+        }
         double max = values.get(0);
         System.out.println("max======================"+max);
         double min = values.get(values.size() - 1);
         System.out.println("min======================"+min);
         int step =  (int) (max - min)/Integer.parseInt(Map_Setting.level);
-
+        if(step == 0){
+            step=1;
+        }
         for (final GeoJsonFeature feature : layer.getFeatures()){
             String type = feature.getGeometry().getType();
             if (type.equals("MultiPolygon")){

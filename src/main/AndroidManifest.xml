@@ -26,19 +26,24 @@
         android:label="AURIN"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StepthroughActivity">
+        <activity android:name=".StepthroughActivity"
+            android:screenOrientation="portrait"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartActivity"/>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".StartActivity"
+            android:screenOrientation="portrait"  />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"  />
         <activity android:name=".SecondActivity" />
-        <activity android:name=".WebViewActivity" />
+        <activity android:name=".WebViewActivity"
+            android:screenOrientation="portrait"  />
         <activity android:name=".DetailActivity" />
-        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".AboutUsActivity"
+            android:screenOrientation="portrait"  />
         <activity android:name=".ThirdActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -58,7 +63,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".Map_Filter" />
+        <activity android:name=".Map_Filter"
+            android:screenOrientation="portrait"  />
         <activity android:name=".ChartActivity" />
     </application>
 

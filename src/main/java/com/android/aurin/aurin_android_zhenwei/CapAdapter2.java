@@ -11,13 +11,14 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * Created by apple on 16/4/10.
+ * Created by apple on 16/5/8.
  */
-public class CapAdapter extends ArrayAdapter<Capabilities> {
+public class CapAdapter2
+        extends ArrayAdapter<Capabilities> {
 
     private int resourceId;
 
-    public CapAdapter(Context context, int textViewResourceId, List<Capabilities> objects){
+    public CapAdapter2(Context context, int textViewResourceId, List<Capabilities> objects){
         super (context, textViewResourceId, objects);
         resourceId = textViewResourceId;
     }
@@ -29,7 +30,6 @@ public class CapAdapter extends ArrayAdapter<Capabilities> {
         ImageView capImage = (ImageView) view.findViewById(R.id.cap_image);
         TextView capText = (TextView) view.findViewById(R.id.cap_name);
         capImage.setImageResource(cap.image_id);
-       // capImage.setImageResource(R.drawable.aurin);
         capText.setText(cap.title);
         return view;
     }

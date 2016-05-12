@@ -21,7 +21,7 @@ public class StartActivity extends AppCompatActivity {
 
         //渐变展示启动屏
         AlphaAnimation aa = new AlphaAnimation(0.3f,1.0f);
-        aa.setDuration(5000);
+        aa.setDuration(2000);
         view.startAnimation(aa);
         aa.setAnimationListener(new Animation.AnimationListener() {
             @Override

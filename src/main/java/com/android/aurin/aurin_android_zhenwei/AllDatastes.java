@@ -8,4 +8,6 @@ import java.util.ArrayList;
 public final class AllDatastes {
 
     public final static ArrayList<Capabilities> lists = new ArrayList<>();
+
+    public static ArrayList<Capabilities> list2 = new ArrayList<>();
 }

@@ -107,16 +107,5 @@
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="10dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\@Zhenwei Wang All rights reserved"
-        android:layout_gravity="bottom"
-        android:layout_marginLeft="60dp"
-       />
 
 </LinearLayout>

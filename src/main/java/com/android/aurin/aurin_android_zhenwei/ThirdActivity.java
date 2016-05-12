@@ -12,16 +12,20 @@ import java.util.ArrayList;
 public class ThirdActivity extends AppCompatActivity {
 
     ArrayList<String> org_selec = new ArrayList<>();
-    ArrayList<Capabilities> cap3 = AllDatastes.lists;
+    ArrayList<Capabilities> cap3 = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
-
         Intent intent = getIntent();
         if ("action".equals(intent.getAction())){
+            //cap3 = AllDatastes.lists;
+            for (int i =0; i<AllDatastes.lists.size();i++){
+                cap3.add(AllDatastes.lists.get(i));
+            }
+            System.out.println("sssssss"+cap3.size());
             boolean showflag = false;
             org_selec = (ArrayList<String>)intent.getSerializableExtra("organdselec");
             System.out.println(org_selec.get(0).toString());
@@ -49,7 +53,7 @@ public class ThirdActivity extends AppCompatActivity {
                 for(int i=0,len= cap3.size();i<len; i++){
                     ArrayList<String> key = cap3.get(i).keywords;
                     for (int j = 0; j < key.size(); j++) {
-                        if (key.get(j).equalsIgnoreCase(query)) {
+                        if (key.get(j).toLowerCase().matches(query.toLowerCase())) {
                             flag = true;
                             break;
                         }
@@ -80,5 +84,10 @@ public class ThirdActivity extends AppCompatActivity {
                 });
             }
         }
+    }
+
+    @Override
+    public void recreate() {
+        super.recreate();
     }
 }
