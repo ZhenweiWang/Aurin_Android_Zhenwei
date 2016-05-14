@@ -1,4 +1,4 @@
-package com.android.aurin.aurin_android_zhenwei;
+package com.android.aurin.eresearch;
 
 /**
  * Created by apple on 16/4/17.

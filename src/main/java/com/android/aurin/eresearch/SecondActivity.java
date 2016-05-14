@@ -1,4 +1,4 @@
-package com.android.aurin.aurin_android_zhenwei;
+package com.android.aurin.eresearch;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+//import com.android.aurin.eresearch.R;
 
 import java.util.ArrayList;
 
@@ -32,9 +34,6 @@ public class SecondActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         //cap2 = AllDatastes.lists;
-        for (int i = 0; i< AllDatastes.lists.size();i++){
-            cap2.add(AllDatastes.lists.get(i));
-        }
         System.out.println("SSSSSSSSSSSATR 2222222!!!");
 //        for(int i=0;i<cap2.size();i++){
 //            String title = cap2.get(i).title;
@@ -46,7 +45,9 @@ public class SecondActivity extends AppCompatActivity{
             BBOX filter_bbox;
             filter_bbox = (BBOX)intent.getSerializableExtra("bbox");
             Picked_City.picked_city = filter_bbox;
-
+            for (int i = 0; i< AllDatastes.lists.size();i++){
+                cap2.add(AllDatastes.lists.get(i));
+            }
             System.out.println("doooooooooooooo filter!!!");
             //filter(filter_bbox);
             System.out.println("finishhhhhhhhhhhhh filter!!!");
@@ -177,7 +178,7 @@ public class SecondActivity extends AppCompatActivity{
             }
         }
 
-        AllDatastes.list2 = cap2;
+        //AllDatastes.list2 = cap2;
 
         for(int i = 0; i< cap2.size(); i++){
             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+cap2.get(i).name);

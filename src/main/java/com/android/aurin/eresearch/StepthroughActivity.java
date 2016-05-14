@@ -1,4 +1,4 @@
-package com.android.aurin.aurin_android_zhenwei;
+package com.android.aurin.eresearch;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ViewFlipper;
+
+//import com.android.aurin.eresearch.R;
 
 public class StepthroughActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
@@ -31,12 +33,11 @@ public class StepthroughActivity extends AppCompatActivity implements GestureDet
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //请求全屏
         getWindow().requestFeature(Window.FEATURE_NO_TITLE); //请求没有标题栏
-
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stepthrough);
 
         detector=new GestureDetector(this);

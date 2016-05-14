@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.aurin.aurin_android_zhenwei">
+    package="com.android.aurin.eresearch">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -26,7 +26,7 @@
         android:label="AURIN"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StepthroughActivity"
+        <activity android:name="com.android.aurin.eresearch.StepthroughActivity"
             android:screenOrientation="portrait"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,17 +34,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartActivity"
+        <activity android:name="com.android.aurin.eresearch.StartActivity"
             android:screenOrientation="portrait"  />
-        <activity android:name=".MainActivity"
+        <activity android:name="com.android.aurin.eresearch.MainActivity"
             android:screenOrientation="portrait"  />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".WebViewActivity"
+        <activity android:name="com.android.aurin.eresearch.SecondActivity" />
+        <activity android:name="com.android.aurin.eresearch.WebViewActivity"
             android:screenOrientation="portrait"  />
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".AboutUsActivity"
+        <activity android:name="com.android.aurin.eresearch.DetailActivity" />
+        <activity android:name="com.android.aurin.eresearch.AboutUsActivity"
             android:screenOrientation="portrait"  />
-        <activity android:name=".ThirdActivity" />
+        <activity android:name="com.android.aurin.eresearch.ThirdActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -61,11 +61,11 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name="com.android.aurin.eresearch.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".Map_Filter"
+        <activity android:name="com.android.aurin.eresearch.Map_Filter"
             android:screenOrientation="portrait"  />
-        <activity android:name=".ChartActivity" />
+        <activity android:name="com.android.aurin.eresearch.ChartActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.android.aurin.aurin_android_zhenwei;
+package com.android.aurin.eresearch;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+//import com.android.aurin.eresearch.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

@@ -1,4 +1,4 @@
-package com.android.aurin.aurin_android_zhenwei;
+package com.android.aurin.eresearch;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+//import com.android.aurin.eresearch.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

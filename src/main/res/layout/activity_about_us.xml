@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:background="@drawable/aboutusback"
-    tools:context="com.android.aurin.aurin_android_zhenwei.AboutUsActivity">
+    tools:context="com.android.aurin.eresearch.AboutUsActivity">
 
     <ImageView
         android:layout_width="match_parent"

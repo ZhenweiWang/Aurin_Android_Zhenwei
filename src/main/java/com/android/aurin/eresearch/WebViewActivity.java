@@ -1,4 +1,4 @@
-package com.android.aurin.aurin_android_zhenwei;
+package com.android.aurin.eresearch;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

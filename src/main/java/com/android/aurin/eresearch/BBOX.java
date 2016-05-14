@@ -1,7 +1,4 @@
-package com.android.aurin.aurin_android_zhenwei;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package com.android.aurin.eresearch;
 
 import java.io.Serializable;
 
