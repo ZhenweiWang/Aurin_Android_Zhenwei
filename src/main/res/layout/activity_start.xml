@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.android.aurin.eresearch.StartActivity"
+    tools:context="com.aurin.eresearch.StartActivity"
     android:orientation="vertical"
     android:background="@drawable/start"
     >
