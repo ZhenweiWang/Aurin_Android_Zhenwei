@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
     defaultConfig {
-        applicationId 'com.aurin.eresearch'
+        applicationId 'com.unimelb.aurin.eresearch'
         minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
@@ -35,7 +35,6 @@ dependencies {
 repositories {
     maven { url "https://jitpack.io" }
 }
-
 
 
 
