@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+
+// inside browsers lead to different views according to the url passed.
 public class WebViewActivity extends AppCompatActivity {
 
     private WebView webView;

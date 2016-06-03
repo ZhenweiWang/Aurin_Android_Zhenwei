@@ -255,6 +255,7 @@ public class Map_Filter extends AppCompatActivity {
 
     }
 
+    // sending the http request for type descriptions of certain dataset
     private void sendRequestWithURLConnection() {
         final String typename = Picked_City.cap_picked.name;
         //System.out.println("URL connection");
@@ -263,7 +264,8 @@ public class Map_Filter extends AppCompatActivity {
             public void run() {
                 HttpURLConnection connection = null;
                 try{
-                    URL url = new URL("https://geoserver.aurin.org.au/wfs?request=DescribeFeatureType&service=WFS&version=1.1.0&TypeName="+typename);
+                    URL url = new URL("https://geoserver.aurin.org.au/wfs?request=" +
+                            "DescribeFeatureType&service=WFS&version=1.1.0&TypeName="+typename);
                     System.out.println(url);
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
@@ -298,6 +300,7 @@ public class Map_Filter extends AppCompatActivity {
         }).start();
     }
 
+    // paring the xml with pull methods.
     private void parseXMLWithPull (String xmlData) {
 
         System.out.println("Start parsing");

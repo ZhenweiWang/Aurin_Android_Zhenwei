@@ -19,6 +19,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     private GoogleMap mMap;
 
+    // define functions for controllers.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +72,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     }
 
+// map fragment
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;

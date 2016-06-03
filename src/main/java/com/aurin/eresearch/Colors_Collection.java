@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 /**
  * Created by apple on 16/4/17.
+ * This class is a collection of different colors
  */
 public final class Colors_Collection {
     public static ArrayList<Integer> reds = new ArrayList<>();

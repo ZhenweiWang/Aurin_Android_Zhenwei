@@ -11,6 +11,8 @@ import android.view.animation.Animation;
 
 //import com.aurin.eresearch.R;
 
+//define the start animation and view
+
 public class StartActivity extends AppCompatActivity {
 
     @Override

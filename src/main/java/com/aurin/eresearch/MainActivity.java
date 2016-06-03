@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     //public ArrayList<Capabilities> allname = new ArrayList<>();
     //public ArrayList<String> titles = new ArrayList<>();
-
+    // define the contents in the spinners.
     private static final String[] state=
             {"Australian Capital Territory","New South Wales","Northern Territory",
                     "Queensland","South Australia","Tasmania","Victoria","Western Australia"};
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+// sending http request for all the datasets.
     private void sendRequestWithURLConnection() {
         //System.out.println("URL connection");
         new Thread(new Runnable() {
@@ -186,7 +186,8 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 HttpURLConnection connection;
                 try{
-                    URL url = new URL("https://geoserver.aurin.org.au/wfs?service=WFS&version=1.1.0&request=GetCapabilities");
+                    URL url = new URL("https://geoserver.aurin.org.au/wfs?service=WFS&" +
+                            "version=1.1.0&request=GetCapabilities");
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setConnectTimeout(8000);
@@ -212,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 
+    // parsing the XML with pull method
     private void parseXMLWithPull (String xmlData) {
         try {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -335,6 +337,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // obtian areas related to the state.
     public void getArea(String str){
         String item=str;
         System.out.println(item);

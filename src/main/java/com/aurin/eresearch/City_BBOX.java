@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Created by apple on 16/4/10.
+ * This class sotred all the bbox of cities in SA2 level.
  */
 public final class City_BBOX {
 

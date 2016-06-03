@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by apple on 16/5/7.
+ * This class stored all the big data of the data set
+ * for extended functions
  */
 public final class Big_Data {
 

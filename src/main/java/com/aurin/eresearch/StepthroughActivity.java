@@ -15,6 +15,8 @@ import android.widget.ViewFlipper;
 
 //import com.aurin.eresearch.R;
 
+// define the launcher animation and settings
+
 public class StepthroughActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
     private ViewFlipper viewFlipper;

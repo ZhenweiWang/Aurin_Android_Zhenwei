@@ -15,6 +15,7 @@ public class AboutUsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
+        // twitter image button passing url as parameter
         ImageButton twitter = (ImageButton) findViewById(R.id.twitter);
         twitter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +26,8 @@ public class AboutUsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//--------------------------------------------------------------------------------------------------
+        // for debug...
 //        twitter.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -35,7 +37,9 @@ public class AboutUsActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
+//--------------------------------------------------------------------------------------------------
 
+        // face book image button, passing url as parameter
         ImageButton facebook = (ImageButton) findViewById(R.id.facebook);
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +51,7 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         });
 
+//--------------------------------------------------------------------------------------------------
 //        facebook.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -56,7 +61,9 @@ public class AboutUsActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
+//--------------------------------------------------------------------------------------------------
 
+        // linkedin image button
         ImageButton linkedin = (ImageButton) findViewById(R.id.instagram);
         linkedin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +74,7 @@ public class AboutUsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//--------------------------------------------------------------------------------------------------
 //        linkedin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -77,5 +84,6 @@ public class AboutUsActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
+//--------------------------------------------------------------------------------------------------
     }
 }

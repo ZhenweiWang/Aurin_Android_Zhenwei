@@ -34,7 +34,7 @@ public class ChartActivity extends AppCompatActivity {
 
     private BarChart barchat;
 
-
+// passing info in sub thread to mian thread UI thread.
     public static final int SHOW_RESPONSE = 0;
     private Handler handler = new Handler() {
 
@@ -72,6 +72,7 @@ public class ChartActivity extends AppCompatActivity {
 
     }
 
+    // visulize bar chart
     private void visual_it(BarChart chart){
         XAxis xAxis = barchat.getXAxis();
 
@@ -116,7 +117,7 @@ public class ChartActivity extends AppCompatActivity {
 
 
 
-
+// sending http request with certain command for certain data.
     private void sendRequestWithURLConnection() {
         final String typename = Picked_City.cap_picked.name;
         final double lla = Picked_City.picked_city.getLowerLa();
@@ -166,6 +167,7 @@ public class ChartActivity extends AppCompatActivity {
         }).start();
     }
 
+    // parsing the json responsed.
     private void parsingJsonObj(String jsonString) throws JSONException {
         JSONObject obj = new JSONObject(jsonString);
         JSONArray jsonArray = new JSONArray(obj.getString("features"));

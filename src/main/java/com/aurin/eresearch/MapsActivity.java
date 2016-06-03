@@ -130,7 +130,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mUiSettings.setZoomControlsEnabled(isChecked(R.id.zoom_buttons_toggle));
         mUiSettings.setCompassEnabled(isChecked(R.id.compass_toggle));
         mUiSettings.setMyLocationButtonEnabled(isChecked(R.id.mylocationbutton_toggle));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
+                (this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -314,7 +317,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // Enable the My Location layer if the permission has been granted.
             if (PermissionUtils.isPermissionGranted(permissions, grantResults,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
+                        (this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
                     // here to request the missing permissions, and then overriding
@@ -558,6 +564,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //    private void addMarker (GeoJsonFeature feature){
 //        LatLng center = feature.getBoundingBox().getCenter();
-//        Marker marker = mMap.addMarker(new MarkerOptions().position(center).snippet(feature.getProperty(Map_Setting.attribute)));
+//        Marker marker = mMap.addMarker(new MarkerOptions().position(center).snippet
+//              (feature.getProperty(Map_Setting.attribute)));
 //    }
 }

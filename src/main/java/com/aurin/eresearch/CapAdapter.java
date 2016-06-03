@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by apple on 16/4/10.
+ * This class defines a adapter for list view
  */
 public class CapAdapter extends ArrayAdapter<Capabilities> {
 

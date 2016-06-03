@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 /**
  * Created by apple on 16/4/9.
+ * This class is a data structure for data sets
  */
 public class Capabilities implements Serializable {
     public String name = "no name";
@@ -16,6 +17,8 @@ public class Capabilities implements Serializable {
     public BBOX bbox;
     public int image_id;
 
+//  For debug .... ... ... ....
+//--------------------------------------------------------------------------------------------------
 //    @Override
 //    public int describeContents() {
 //        return 0;
@@ -47,6 +50,6 @@ public class Capabilities implements Serializable {
 //                    return new Capabilities[size];
 //                }
 //            };
-
+//--------------------------------------------------------------------------------------------------
 }
 

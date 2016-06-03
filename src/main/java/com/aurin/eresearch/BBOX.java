@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by apple on 16/4/9.
+ * this class is a data structure for bouding box
  */
 public class BBOX implements Serializable{
 
@@ -12,7 +13,7 @@ public class BBOX implements Serializable{
     private double higherLon = 0.0;
     private double lowerLa = 0.0;
     private double higherLa = 0.0;
-
+//--------------------------------------------------------------------------------------------------
 //    public void setName(String name) {
 //        this.name = name;
 //    }
@@ -20,7 +21,9 @@ public class BBOX implements Serializable{
 //    public String getName() {
 //        return name;
 //    }
+//--------------------------------------------------------------------------------------------------
 
+    // constructors
     public BBOX(){
 
     }
@@ -32,6 +35,7 @@ public class BBOX implements Serializable{
         this.higherLa = higherLa;
     }
 
+    // set and get methods.
     public void setLowerLon(Double lowerLon) {
         this.lowerLon = lowerLon;
     }
@@ -64,6 +68,7 @@ public class BBOX implements Serializable{
         return higherLa;
     }
 
+//--------------------------------------------------------------------------------------------------
 //    @Override
 //    public int describeContents() {
 //        return 0;
@@ -94,4 +99,5 @@ public class BBOX implements Serializable{
 //                    return new BBOX[size];
 //                }
 //            };
+//--------------------------------------------------------------------------------------------------
 }
